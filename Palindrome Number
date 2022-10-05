@@ -1,5 +1,15 @@
 Problem:- https://leetcode.com/problems/palindrome-number/
 
+Test Cases:-
+
+[1]
+Input: x = 121
+Output: true
+
+[2]
+Input: x = -121
+Output: false
+
 Solution:-
 
 class Solution {
