@@ -1,5 +1,15 @@
 Problem:- https://leetcode.com/problems/roman-to-integer/submissions/
 
+Test cases:-
+
+[1]
+Input: s = "III"
+Output: 3
+
+[2]
+Input: s = "LVIII"
+Output: 58
+
 Solution:-
 
 class Solution {
