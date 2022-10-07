@@ -1,0 +1,32 @@
+Problem:- https://leetcode.com/problems/remove-duplicates-from-sorted-list/
+
+Test Cases:-
+
+[1]
+
+Input: head = [1,1,2]
+Output: [1,2]
+
+[2]
+
+Input: head = [1,1,2,3,3]
+Output: [1,2,3]
+
+Solution:-
+
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        if(head == null) return null;
+        ListNode prev = head;
+        ListNode n = head.next;
+        while(n != null){
+            prev.next = null;
+            if(n.val != prev.val){
+                prev.next = n;
+                prev = prev.next;
+            }
+            n = n.next;
+        }
+        return head;
+    }
+}
