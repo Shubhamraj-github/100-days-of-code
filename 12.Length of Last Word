@@ -1,0 +1,28 @@
+Problem:- https://leetcode.com/problems/length-of-last-word/
+
+Test Cases:-
+
+[1]
+
+Input: s = "Hello World"
+Output: 5
+
+[2]
+
+Input: s = "luffy is still joyboy"
+Output: 6
+
+Solution:-
+
+class Solution {
+    public int lengthOfLastWord(String s) {
+        s = s.trim();
+        int ans = 0 ; 
+        int start = s.length()-1 ;
+        while(start>=0 && s.charAt(start) != ' '){
+            ans++;
+            start--;
+        }
+        return ans ;
+    }
+}
