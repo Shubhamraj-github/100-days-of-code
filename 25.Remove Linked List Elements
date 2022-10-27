@@ -1,1 +1,30 @@
+Problem:- https://lnkd.in/dhD8FTsB
 
+Test Cases:-
+[1]
+Input: head = [7,7,7,7], val = 7
+Output: []
+
+[2]
+Input: head = [1,2,6,3,4,5,6], val = 6
+Output: [1,2,3,4,5]
+
+Solution:-
+class Solution {
+    public ListNode removeElements(ListNode head, int val) {
+        ListNode ans= new ListNode();
+        ListNode cur= ans;
+        ListNode temp = head;
+
+        while(temp != null){
+            if(temp.val != val){
+                cur.next = new ListNode(temp.val);
+                cur = cur.next;
+            }
+
+            temp= temp.next;
+        }
+
+        return ans.next;
+    }
+}
