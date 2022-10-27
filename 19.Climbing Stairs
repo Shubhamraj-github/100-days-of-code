@@ -1,1 +1,25 @@
+Problem:- https://lnkd.in/dY_Hs663
 
+Test Cases:-
+[1]
+Input: n = 3
+Output: 3
+
+[2]
+Input: n = 2
+Output: 2
+
+Solution:-
+class Solution {
+    public int climbStairs(int n) {
+        int steps=0;
+        int n1=0;
+        int n2=1;
+            for(int i=1; i<=n;i++){
+                steps=n1+n2;
+                n1=n2;
+                n2=steps;
+            }
+        return steps;
+    }
+}
