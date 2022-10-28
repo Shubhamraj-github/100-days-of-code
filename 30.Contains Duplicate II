@@ -1,0 +1,26 @@
+Problem:- https://leetcode.com/problems/contains-duplicate-ii/submissions/
+
+Testcase:-
+[1]
+Input: nums = [1,0,1,1], k = 1
+Output: true
+
+[2]
+Input: nums = [1,2,3,1,2,3], k = 2
+Output: false
+
+Solution:-
+class Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        if (k == 0) return false;
+
+        Map<Integer, Integer> hashMap = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int integer = nums[i];
+            if (hashMap.containsKey(integer) && i - hashMap.get(integer) <= k)
+                return true;
+            hashMap.put(integer, i);
+        }
+        return false;
+    }
+}
