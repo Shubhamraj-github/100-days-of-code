@@ -1,0 +1,24 @@
+Problem:- https://leetcode.com/problems/excel-sheet-column-title/
+
+Testcase:-
+[1]
+Input: columnNumber = 1
+Output: "A"
+[2]
+Input: columnNumber = 28
+Output: "AB"
+
+Solution:-
+
+class Solution {
+    public String convertToTitle(int n) {
+      String result = "";
+       
+       while(n > 0) {
+           n --;
+           result = (char)('A' + (n % 26)) + result;
+           n = n / 26;
+       }
+       return result;
+    }
+}
