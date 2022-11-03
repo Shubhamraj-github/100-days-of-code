@@ -1,0 +1,22 @@
+Problem:- https://leetcode.com/problems/excel-sheet-column-number/
+
+Testcase:-
+[1]
+Input: columnTitle = "A"
+Output: 1
+[2]
+Input: columnTitle = "ZY"
+Output: 701
+
+Solution:-
+public class Solution {
+    public int titleToNumber(String s) {
+        if (s == null) return -1;
+        int sum = 0;
+        for (char c : s.toUpperCase().toCharArray()) {
+            sum *= 26;
+            sum += c - 'A' + 1;
+        }
+        return sum;
+    }
+}
