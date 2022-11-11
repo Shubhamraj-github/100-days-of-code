@@ -1,0 +1,27 @@
+Problem:- https://leetcode.com/problems/balanced-binary-tree/description/
+
+Testcase:-
+[1]
+Input: root = [3,9,20,null,null,15,7]
+Output: true
+[2]
+Input: root = [1,2,2,3,3,null,null,4,4]
+Output: false
+
+Solution:-
+class Solution {
+    public boolean isBalanced(TreeNode root) {
+        return height(root, 1) > 0;
+    }
+
+    private int height(TreeNode root, int height) {
+        if(root == null ) return height;
+
+        int left = height(root.left, height+1);
+        int right = height(root.right, height+1);
+
+        if(left < 0 || right < 0 || Math.abs(left-right) > 1) return -1; //Fail fast
+
+        return Math.max(left, right);
+    }
+}
