@@ -1,0 +1,56 @@
+Problem:- https://leetcode.com/problems/palindrome-linked-list/description/
+
+Testcase:-
+[1]
+Input: head = [1,2,2,1]
+Output: true
+[2]
+Input: head = [1,2]
+Output: false
+
+Solution:-
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        ListNode mid = getMid(head);
+        ListNode headSecond = reverseList(mid);
+
+        while(head != null && headSecond != null){
+            if(head.val != headSecond.val){
+                return false;
+            }
+            head = head.next;
+            headSecond = headSecond.next;
+        }
+        return true;
+    }
+
+    public ListNode getMid(ListNode head){
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while(fast!= null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow;
+    }
+
+    public ListNode reverseList(ListNode node){
+        ListNode prev = null;
+        ListNode current = node;
+        ListNode next = current.next;
+
+        while(current != null){
+            current.next = prev;
+            prev = current;
+            current = next;
+
+            if(next != null){
+                next = next.next;
+            }
+        }
+
+        return prev;
+    }
+}
