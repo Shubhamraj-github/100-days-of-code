@@ -1,0 +1,19 @@
+Problem:- https://leetcode.com/problems/detect-capital/description
+
+Solution:-
+
+class Solution {
+    public boolean detectCapitalUse(String word){
+        if(word.length()==1) return true;
+        int count = 0;
+        int c2=0;
+         if( word.charAt(0)>='A' && word.charAt(0)<='Z') count+=1;
+        for(int i=1;i<word.length();i++){
+            if(word.charAt(i)>='A' && word.charAt(i)<='Z' ){
+                c2+=1;
+            }
+            if(count==0 && c2>=1) return false;
+        }
+        return count+c2==word.length() || (count==1 && c2==0) || count+c2==0;
+    }
+}
