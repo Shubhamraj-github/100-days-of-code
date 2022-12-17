@@ -1,0 +1,41 @@
+Problem:- https://leetcode.com/problems/zigzag-conversion/description/
+
+Solution:-
+
+class Solution {
+    public String convert(String s, int numRows) {
+        if(numRows == 1){
+            return s;
+        }
+        
+        int rowIncrement = -1;
+        int rowIndex = 0;
+    
+        StringBuilder[] sb = new StringBuilder[numRows];
+        
+        for(int i=0; i< numRows; i++){
+            sb[i] = new StringBuilder();
+        }
+        
+        for(int i= 0; i < s.length(); i++){
+            sb[rowIndex].append(s.charAt(i));
+            
+            if(switchPoint(i, numRows)){
+                rowIncrement = rowIncrement * -1;
+            }
+            rowIndex += rowIncrement;
+        }
+        
+        StringBuilder result = new StringBuilder();
+        for(int i=0; i< numRows; i++){
+            result.append(sb[i]);
+        }
+        
+        
+        return result.toString();
+    }
+    
+    private boolean switchPoint(int i, int numRows){
+        return i %(numRows - 1) == 0;
+    }
+}
